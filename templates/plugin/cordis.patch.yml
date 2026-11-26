@@ -1,0 +1,22 @@
+# ============================================================================
+# {{pkgName}} — DSH bundle patch
+# ============================================================================
+# 这是插件的"挂载声明"。少了它，包装上了、但是个 inert dependency：
+# DSH 启动时比对 dsh.profile.bundles 与已安装包，只有 manifest 里声明了
+# dsh.bundle.patch 的包才进图层栈，才会被下面这个 insert 行挂载。少了它的
+# 表现是"装上了但没有任何反应"，只给一句 declares no dsh.bundle 的 warning。
+#
+# 安装：
+#   dsh plugin --profile web add <这个目录，或 npm spec>
+#
+# 注意：insert 行的 id 必须和 package.json 的 name 一致，否则挂载不到。
+# 这条由 dpd check 的 manifest 项守着。
+# ============================================================================
+
+- insert:
+    - id: {{pkgName}}
+      name: {{pkgName}}
+      # 插件自己的配置。不需要的话连 config 一起删掉，契约只要求这一行 id/name。
+      config:
+        # 示例开关：改 src/host/index.js 里的同名默认值，别只改这里。
+        greeting: 'hello from {{pkgName}}'

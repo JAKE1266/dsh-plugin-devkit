@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- 插件图标。64x64，深色模式下默认在深色背景上：用亮色描边，不用亮色填充。 -->
+  <rect x="4" y="10" width="56" height="44" rx="10" fill="#111827" stroke="#4f46e5" stroke-width="3"/>
+  <circle cx="24" cy="26" r="4" fill="#a5b4fc"/>
+  <rect x="14" y="40" width="36" height="4" rx="2" fill="#a5b4fc"/>
+  <rect x="14" y="30" width="24" height="4" rx="2" fill="#6b7280"/>
+</svg>

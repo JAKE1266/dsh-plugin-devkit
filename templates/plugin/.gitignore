@@ -1,0 +1,29 @@
+# 依赖与产物 / Dependencies and build output
+node_modules/
+*.tgz
+
+# 本地产物。client bundle 的 rev 是进程 nonce，本地构建的 rev 不该进仓库。
+lib/
+dist/
+build/
+*.map
+
+# 崩溃日志留在提交流水线里毫无用处
+npm-debug.log*
+yarn-error.log*
+
+# 本地 profile 缓存，可能带着真凭据
+.dsh/
+*.local
+
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.idea/
+.vscode/
+*.swp
+
+# 临时
+.tmp/
+.tmp*

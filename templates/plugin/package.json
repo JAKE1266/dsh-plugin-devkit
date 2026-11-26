@@ -1,0 +1,62 @@
+{
+  "name": "{{pkgName}}",
+  "version": "0.1.0",
+  "description": "{{description}}",
+  "type": "module",
+  "main": "./lib/index.js",
+  "icon": "./assets/icon.svg",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "ARCHITECTURE.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "author": "{{author}}",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/{{githubUser}}/{{pkgName}}.git"
+  },
+  "homepage": "https://github.com/{{githubUser}}/{{pkgName}}#readme",
+  "bugs": {
+    "url": "https://github.com/{{githubUser}}/{{pkgName}}/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "{{name}}"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "//peerDependencies": "刻意不声明任何 @deepseek-ai/* 依赖：宿主侧只通过 ctx 取 service。DSH 0.2.0 起 peerDeps 对不上的插件整包静默跳过，这是最容易白忙一场的坑。跑 dpd check 的 peer-gate 项来守这条。",
+  "scripts": {
+    "test": "node test/run.mjs",
+    "check": "node scripts/check-css-template.mjs && node scripts/verify-client-boot.mjs",
+    "preflight": "node test/preflight-boot.mjs",
+    "preflight:dump": "node test/preflight-boot.mjs --dump"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    },
+    "engines": {
+      "dsh": ">=0.1.5-rc.1"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 单元测试与契约测试都不需要依赖，直接跑。
+      - name: 测试
+        run: npm test
+
+      # 静态检查：CSS 反引号 + 客户端 boot 不变量。
+      - name: 检查
+        run: npm run check
+
+      # 装包能力验证：确认 files 数组真的把该发的都发出来了。
+      - name: 打包清单
+        run: npm pack --dry-run

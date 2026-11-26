@@ -1,0 +1,55 @@
+{
+  "name": "dsh-plugin-devkit",
+  "version": "0.1.0",
+  "description": "DSH 插件脚手架与体检仪 —— 一条命令生成带测试和 CI 的插件骨架，8 项静态检查拦住那些只能靠踩坑才知道的雷。Scaffold a DSH plugin in one command, then run 8 static checks that catch the traps you only learn by getting burned.",
+  "type": "module",
+  "bin": {
+    "dpd": "./bin/dpd.mjs",
+    "dsh-plugin-devkit": "./bin/dpd.mjs"
+  },
+  "main": "./lib/index.mjs",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./check": "./lib/check.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "templates",
+    "README.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "author": "dsh-plugin-devkit contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JAKE1266/dsh-plugin-devkit.git"
+  },
+  "homepage": "https://github.com/JAKE1266/dsh-plugin-devkit#readme",
+  "bugs": {
+    "url": "https://github.com/JAKE1266/dsh-plugin-devkit/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "scaffold",
+    "devkit",
+    "cli",
+    "plugin-template",
+    "linter",
+    "preflight"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node test/run.mjs",
+    "check": "node bin/dpd.mjs check --self",
+    "new": "node bin/dpd.mjs new"
+  }
+}
